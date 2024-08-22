@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { DataContext } from "../context/data-context";
 import ActivityTable from "../components/activityTable";
 import useIncome from "../hooks/useIncome";
+import ErrorBoundary from "../components/error-boundary";
 
 function Income() {
   const { incomeData, setIncomeData } = useContext(DataContext);
@@ -102,7 +103,9 @@ function Income() {
       <h1 className="text-3xl font-bold mb-6">Income</h1>
 
       {/* Pass combined data as a prop to ActivityTable */}
-      <ActivityTable data={combinedData} />
+      <ErrorBoundary>
+        <ActivityTable data={combinedData} />
+      </ErrorBoundary>
     </div>
   );
 }

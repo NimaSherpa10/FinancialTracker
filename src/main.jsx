@@ -9,6 +9,7 @@ import Expenses from "./pages/Expenses.jsx";
 import Goals from "./pages/goals.jsx";
 import DataProvider from "./context/data-provider.jsx";
 import GoalsProvider from "./context/goals-provider.jsx";
+import ErrorBoundary from "./components/error-boundary.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,9 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <DataProvider>
       <GoalsProvider>
-        <RouterProvider router={router} />
+        <ErrorBoundary>
+          <RouterProvider router={router} />
+        </ErrorBoundary>
       </GoalsProvider>
     </DataProvider>
   </StrictMode>

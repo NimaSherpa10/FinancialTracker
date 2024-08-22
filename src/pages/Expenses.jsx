@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { DataContext } from "../context/data-context";
 import ActivityTable from "../components/activityTable";
 import useExpense from "../hooks/useExpense";
+import ErrorBoundary from "../components/error-boundary";
 
 function Expense() {
   const { expenseData, setExpenseData } = useContext(DataContext);
@@ -101,7 +102,9 @@ function Expense() {
       <h1 className="text-3xl font-bold mb-6">Expenses</h1>
 
       {/* Pass combined data as a prop to ActivityTable */}
-      <ActivityTable data={combinedData} />
+      <ErrorBoundary>
+        <ActivityTable data={combinedData} />
+      </ErrorBoundary>
     </div>
   );
 }
