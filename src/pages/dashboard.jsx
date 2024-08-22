@@ -1,23 +1,21 @@
-import ActivityTable from "../components/activityTable";
 import Graph from "../components/graph";
 import MainStatCard from "../components/main-stat-card";
 import ProgressStat from "../components/progress-stat";
 
 function Dashboard() {
   return (
-    <>
-      <div className="flex justify-center sm:justify-between md:justify-between lg:justify-between flex-wrap">
+    <div className="p-4 md:p-8">
+      {/* Flex container for the stat cards */}
+      <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-between sm:space-x-4 lg:space-x-6">
         <MainStatCard />
         <ProgressStat />
       </div>
-      <div>
+
+      {/* Graph container */}
+      <div className="mt-6">
         <Graph />
       </div>
-      <div>
-        <h1 className="text-black font-bold text-3xl my-2"> Recent Activity</h1>
-        <ActivityTable />
-      </div>
-    </>
+    </div>
   );
 }
 

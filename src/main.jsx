@@ -7,6 +7,8 @@ import Dashboard from "./pages/dashboard.jsx";
 import Income from "./pages/income.jsx";
 import Expenses from "./pages/Expenses.jsx";
 import Goals from "./pages/goals.jsx";
+import DataProvider from "./context/data-provider.jsx";
+import GoalsProvider from "./context/goals-provider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <DataProvider>
+      <GoalsProvider>
+        <RouterProvider router={router} />
+      </GoalsProvider>
+    </DataProvider>
   </StrictMode>
 );

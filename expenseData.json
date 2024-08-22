@@ -1,0 +1,32 @@
+[
+  {
+    "source": "Rent",
+    "amount": 1200,
+    "category": "Housing",
+    "date": "2024-08-01"
+  },
+  {
+    "source": "Groceries",
+    "amount": 350,
+    "category": "Food",
+    "date": "2024-08-05"
+  },
+  {
+    "source": "Utilities",
+    "amount": 150,
+    "category": "Utilities",
+    "date": "2024-08-10"
+  },
+  {
+    "source": "Transportation",
+    "amount": 200,
+    "category": "Transportation",
+    "date": "2024-08-15"
+  },
+  {
+    "source": "Entertainment",
+    "amount": 100,
+    "category": "Leisure",
+    "date": "2024-08-20"
+  }
+]

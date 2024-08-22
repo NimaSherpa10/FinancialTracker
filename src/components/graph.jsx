@@ -10,26 +10,41 @@ import {
   Area,
   AreaChart,
 } from "recharts";
-
-const data = [
-  { name: "Apr", income: 100, expenses: 50 },
-  { name: "May", income: 200, expenses: 100 },
-  { name: "Jun", income: 300, expenses: 40 },
-  { name: "Jul", income: 150, expenses: 200 },
-  { name: "Aug", income: 250, expenses: 130 },
-  { name: "Sep", income: 400, expenses: 180 },
-  { name: "Oct", income: 300, expenses: 100 },
-  { name: "Nov", income: 350, expenses: 90 },
-  { name: "Dec", income: 500, expenses: 300 },
-];
+import { useContext, useMemo } from "react";
+import { DataContext } from "../context/data-context";
 
 function Graph() {
+  const { incomeData, expenseData } = useContext(DataContext);
+
+  // Combine and format the data for the chart
+  const data = useMemo(() => {
+    const mergedData = {};
+
+    // Combine income data
+    incomeData.forEach((income) => {
+      const month = income.date.slice(0, 3); // Assuming date is in the format like "Apr 2024"
+      if (!mergedData[month])
+        mergedData[month] = { name: month, income: 0, expenses: 0 };
+      mergedData[month].income += Number(income.amount);
+    });
+
+    // Combine expense data
+    expenseData.forEach((expense) => {
+      const month = expense.date.slice(0, 3);
+      if (!mergedData[month])
+        mergedData[month] = { name: month, income: 0, expenses: 0 };
+      mergedData[month].expenses += Number(expense.amount);
+    });
+
+    // Convert the merged data object into an array
+    return Object.values(mergedData);
+  }, [incomeData, expenseData]);
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h2 className="text-2xl font-semibold text-center mb-4">
-        Finance Overiview
+        Finance Overview
       </h2>
-      <p className="text-center text-sm text-gray-500 mb-6">4% more in 2021</p>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />

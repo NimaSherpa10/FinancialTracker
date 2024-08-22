@@ -1,0 +1,32 @@
+[
+  {
+    "source": "Salary",
+    "amount": 5000,
+    "category": "Employment",
+    "date": "2024-08-01"
+  },
+  {
+    "source": "Freelance Project",
+    "amount": 1500,
+    "category": "Freelance",
+    "date": "2024-08-05"
+  },
+  {
+    "source": "Stock Dividends",
+    "amount": 300,
+    "category": "Investments",
+    "date": "2024-08-10"
+  },
+  {
+    "source": "Rental Income",
+    "amount": 1200,
+    "category": "Real Estate",
+    "date": "2024-08-15"
+  },
+  {
+    "source": "Gift",
+    "amount": 250,
+    "category": "Other",
+    "date": "2024-08-20"
+  }
+]
