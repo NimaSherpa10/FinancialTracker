@@ -97,6 +97,39 @@ Copy code
 git push origin feature/your-feature-name
 ```
 
+##Context Providers
+DataContext: Provides state management for income and expense data.
+GoalsContext: Provides state management for savings goals.
+
+##Hooks
+useIncome
+Custom hook for fetching income data.
+
+##Usage:
+
+const { data, error } = useIncome(url);
+Parameters:
+
+url (string): The URL to fetch income data from.
+Returns:
+
+data (Array): Array of income data objects.
+error (string | null): Error message if the fetch fails.
+
+useExpense
+Custom hook for fetching expense data.
+
+Usage:
+
+const { data, error } = useExpense(url);
+Parameters:
+
+url (string): The URL to fetch expense data from.
+Returns:
+
+data (Array): Array of expense data objects.
+error (string | null): Error message if the fetch fails.
+
 Create a Pull Request:
 Go to the repository on GitHub and create a pull request from your branch.
 
